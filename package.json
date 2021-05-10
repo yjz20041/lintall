@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/yjz20041/lintall/issues"
   },
-  "homepage": "https://github.com/yjz20041/lintall#readme"
+  "homepage": "https://github.com/yjz20041/lintall#readme",
+  "dependencies": {
+    "commander": "^7.2.0",
+    "shelljs": "^0.8.4"
+  }
 }
