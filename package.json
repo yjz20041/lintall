@@ -1,6 +1,6 @@
 {
-  "name": "lintall",
-  "version": "0.1.1",
+  "name": "lintall-cli",
+  "version": "0.1.2",
   "description": "",
   "main": "index.js",
   "bin": {

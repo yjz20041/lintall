@@ -20,11 +20,11 @@ const lintCommit = () => {
   })
 }
 
-const lintES = (blob, fixed = false) => {
+const lintES = (blob, fix = false) => {
   return new Promise((resolve, reject) => {
     console.log(`start eslint`);
     const estpl = `
-      eslint ${blob} --color --fix=${fixed}
+      eslint ${blob} --color --fix=${fix}
     `
     shell.exec(estpl, {
       cwd
@@ -39,11 +39,11 @@ const lintES = (blob, fixed = false) => {
   })
 }
 
-const lintStyle = (blob, fixed = false) => {
+const lintStyle = (blob, fix = false) => {
   return new Promise((resolve, reject) => {
     console.log(`start stylelint`);
     const estpl = `
-      stylelint ${blob} --color --fix=${fixed}
+      stylelint ${blob} --color --fix=${fix}
     `
     shell.exec(estpl, {
       cwd
@@ -61,15 +61,13 @@ const lintStyle = (blob, fixed = false) => {
 const lintAll = async ({
   es,
   style
-}, fixed = false) => {
+}, fix = false) => {
   try {
-    console.log(es, style);
-    await lintCommit();
-    await lintES(es, fixed);
-    await lintStyle(style, fixed);
+    await lintES(es, fix);
+    await lintStyle(style, fix);
+    console.log('end');
   } catch(e) {
     process.exit(1);
-    console.log('end');
   }
 }
 
